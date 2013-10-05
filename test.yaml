@@ -1,0 +1,122 @@
+action: test    # test/load/query
+logic: spdl1    # cpdl/spdl/spdl2
+format: str     # str/latex
+dataset:
+  - fact:
+      - tweety
+      - tweety -> bird
+      - 'penguin -> !fly'
+    rule:
+      - bird:fly/fly
+    has_extension: 1
+    skeptical_entail:
+      - 'fly'
+    add:
+      - fact:
+          - tweety->penguin
+        has_extension: 1
+        credulous_entail:
+          - '!fly'
+  - fact:
+      - '\top'
+      - 'r'
+    rule:
+      - '\top:!p/r=)q'
+      - '\top:!q/r=)p'
+    credulous_entail:
+      - 'x=)p'
+      - '!x->q'
+    not_skeptical_entail:
+      - p
+      - q
+    skeptical_entail:
+      - r
+    has_extension: 2
+    add:
+      - fact:
+          - '!r'
+        credulous_entail:
+          - p
+          - q
+        not_skeptical_entail:
+          - p
+          - q
+        skeptical_entail:
+          - r
+        has_extension: 2
+  - fact:
+      - 'T'
+    rule:
+      - 'T:p/q'
+      - 'T:p/!q'
+    credulous_entail:
+      - q
+      - '!q'
+    not_credulous_entail:
+      - r
+      - p
+      - '!p'
+    has_extension: 1
+  - fact:
+      - 'T'
+      - 'q'
+    rule:
+      - 'T:p/!q'
+    credulous_entail:
+      - q
+      - '!q'
+    not_credulous_entail:
+      - r
+      - p
+      - '!p'
+    has_extension: 1
+  - fact:
+      - 'T'
+    rule:
+      - 'T:p/!p'
+    credulous_entail:
+      - '!p'
+    not_credulous_entail:
+      - r
+      - p
+    has_extension: 1
+  - fact:
+      - 'T'
+    rule:
+      - 'T:p/q'
+      - 'q:r/!p'
+    credulous_entail:
+      - '!p'
+      - q
+    not_credulous_entail:
+      - p
+      - '!q'
+      - r
+      - '!r'
+    has_extension: 1
+  - fact:
+      - 'T'
+      - 'p'
+      - 'p->q'
+    rule:
+      - 'T:p/!p'
+    credulous_entail:
+      - '!p'
+      - p
+    not_credulous_entail:
+      - q
+      - r
+    has_extension: 1
+  - fact:
+      - 'T'
+      - 'p'
+      - 'p=)q'
+    rule:
+      - 'T:p/!p'
+    credulous_entail:
+      - '!p'
+      - p
+      - q
+    not_credulous_entail:
+      - r
+    has_extension: 1

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>SPDL Demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	  jax: ["input/TeX", "output/HTML-CSS"],
+	  tex2jax: {
+		  inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		  processEscapes: true
+      }
+    });
+</script>
+<!-- <script type="text/javascript" src="js/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    
+</head>
+<body>
+<div class="container">
+
+<div class="row">
+  <h2>Build default logic
+    <div class="btn-group pull-right">
+      <a class="btn btn-default" id="btn-reset">Reset</a>
+      <a class="btn btn-default" id="btn-load">Load</a>
+      <a class="btn btn-default" id="btn-save">Save</a>
+    </div>
+  </h2>
+
+  <div>
+  <form class="form-inline" role="form" id="form-add-fact">
+  <div class="form-group col-sm-10">
+    <input type="text" class="form-control" id="add-fact" placeholder="tweety->bird">
+    <p class="control-label" for="add-fact"></p>
+  </div>
+  <div class="form-group col-sm-2">
+  <button type="submit" class="btn btn-default" id="btn-add-fact">Add fact</button>
+  </div>
+  </form>
+  <form class="form-inline" role="form" id="form-add-rule">
+  <div class="form-group col-sm-10">
+    <input type="text" class="form-control" id="add-rule" placeholder="bird:fly/fly">
+    <p class="control-label" for="add-rule"></p>
+  </div>
+  <div class="form-group col-sm-2">
+  <button type="submit" class="btn btn-default" id="btn-add-rule">Add rule</button>
+  </div>
+  </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 container">
+    <ul class="list-group" id="list-fact"></ul>
+  </div>
+  <div class="col-sm-6 container">
+    <ul class="list-group" id="list-rule"></ul>
+  </div>
+</div>
+
+<div class="row">
+  <h2>Query</h2>
+  <form role="form" id="form-query">
+  <div class="form-group col-sm-2">
+    <label>Logic</label>
+    <select class="form-control" id="logic">
+      <option value="spdl1">SPDL 1</option>
+      <option value="spdl2">SPDL 2</option>
+      <option value="cpdl">CPDL</option>
+    </select>
+  </div>
+  <div class="form-group col-sm-3">
+    <label>Question</label>
+    <select class="form-control" id="question">
+      <option value="has_extension">has extension</option>
+      <option value="credulous_entail">credulous entail</option>
+      <option value="skeptical_entail">skeptical entail</option>
+      <option value="all_extensions">all extensions</option>
+    </select>
+  </div>
+  <div class="form-group col-sm-5">
+    <label>formula</label>
+    <input type="text" class="form-control" id="formula" placeholder="tweety->fly">
+  </div>
+  <div class="form-group col-sm-2">
+    <button type="submit" class="btn btn-primary" id="btn-query">Query</button>
+  </div>
+  </form>
+</div>
+
+<div class="row">
+<div class="alert alert-info" id="query-result">
+    No query.
+</div>
+</div>
+
+</div>
+<script src="js/jquery-2.0.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/dlgui.js"></script>
+</body>
+</html>
+
