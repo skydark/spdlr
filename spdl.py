@@ -7,7 +7,7 @@ from symbol import Not, Atom
 from plogic import SPPLogic, CPLogic
 from dlogic import DefaultLogic, DefaultRule, CPDLogic
 from visitor import collect_atoms, subst, subst_all, to_FullPNNF
-from parser import parse
+from lparser import parse
 
 
 class SPDLogicSkeleton(DefaultLogic):

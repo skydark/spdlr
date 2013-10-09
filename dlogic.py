@@ -128,7 +128,7 @@ class CPDLogic(DefaultLogic):
 
 
 if __name__ == '__main__':
-    from parser import parse
+    from lparser import parse
     from visitor import to_latex
     t = CPDLogic()
     t.add_fact(parse('tweety'))

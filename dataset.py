@@ -8,7 +8,7 @@ import yaml
 from spdl import SPDLogic, AnotherSPDLogic
 from dlogic import DefaultRule, CPDLogic
 from symbol import Formula
-from parser import parse, FormulaSyntaxError
+from lparser import parse, FormulaSyntaxError
 from visitor import to_latex
 
 

@@ -16,7 +16,7 @@ except ImportError:
     from PyQt4 import QtCore, QtGui, QtWebKit
     QtCore.Slot = QtCore.pyqtSlot
 
-from parser import parse
+from lparser import parse
 from symbol import LogicObject, Formula
 from dlogic import DefaultRule
 from dataset import LOGIC_MAP, DatasetLoader

@@ -213,7 +213,7 @@ TEST_DATA = [
         ]
 
 if __name__ == '__main__':
-    from parser import parse
+    from lparser import parse
 
     for org_str, org_form, CNF, latex in TEST_DATA:
         # TODO: parse from org_str
