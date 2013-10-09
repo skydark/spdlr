@@ -135,8 +135,8 @@ class PyObj(QtCore.QObject):
         return make_json(False, ret)
 
 
-def main():
-    app = QtGui.QApplication(sys.argv)
+def main(*argv):
+    app = QtGui.QApplication(argv)
 
     pyobj = PyObj()
 
@@ -153,4 +153,4 @@ def main():
     sys.exit(app.exec_())
 
 if __name__ == "__main__":
-    main()
+    main(*sys.argv)
