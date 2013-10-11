@@ -78,17 +78,15 @@ class SPDLogicSkeleton(DefaultLogic):
                         break
                 else:
                     cdl = self._make_classic_default_logic(incs)
-                    has_extension = False
+                    if not cdl.has_extension():
+                        continue
                     for extension in cdl.all_extensions():
                         if not extension.sat():
                             break
                         for atom in incs:
-                            if not extension.sat(self._make_tester(atom)):
-                                break
-                        else:
-                            yield extension
-                            has_extension = True
-                    if has_extension:
+                            assert extension.sat(self._make_tester(atom))
+                        yield extension
+                    else:
                         min_incs_set.append(incs)
                         if inc_count == 0:
                             return
