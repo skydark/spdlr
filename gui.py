@@ -16,6 +16,9 @@ try:
 except ImportError:
     from PyQt4 import QtCore, QtGui, QtWebKit
     QtCore.Slot = QtCore.pyqtSlot
+    from PyQt4.QtGui import QFileDialog
+    QFileDialog.getOpenFileName = QFileDialog.getOpenFileNameAndFilter
+    QFileDialog.getSaveFileName = QFileDialog.getSaveFileNameAndFilter
 
 from lparser import parse
 from symbol import LogicObject, Formula
@@ -137,7 +140,7 @@ class PyObj(QtCore.QObject):
 
 
 def main(*argv):
-    app = QtGui.QApplication(argv)
+    app = QtGui.QApplication(list(argv))
 
     pyobj = PyObj()
 
